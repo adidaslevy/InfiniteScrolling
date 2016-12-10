@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/angular-material.css" rel="stylesheet" />
+<style>
+    .virtualRepeatdemoInfiniteScroll #vertical-container {
+        height: 292px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .virtualRepeatdemoInfiniteScroll .repeated-item {
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+        height: 40px;
+        padding-top: 10px;
+    }
+
+    .virtualRepeatdemoInfiniteScroll md-content {
+        margin: 16px;
+    }
+
+    .virtualRepeatdemoInfiniteScroll md-virtual-repeat-container {
+        border: solid 1px grey;
+    }
+
+    .virtualRepeatdemoInfiniteScroll .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
+        padding-left: 16px;
+    }
+</style>
+
+    <div ng-controller="infiniteController as ctrl" ng-cloak="" class="virtualRepeatdemoInfiniteScroll" ng-app="infiniteScrollApp" > 
+        <md-content layout="column" > 
+            <p>
+                This is my infinite scroll app
+            </p>
+            <md-virtual-repeat-container id="vertical-container">
+                <div md-virtual-repeat="item in ctrl.infiniteItems" md-on-demand="" class="repeated-item" flex="">
+                {{item}}
+            </div>
+        </md-virtual-repeat-container>
+    </md-content>
+
+</div>
+
+<script src="~/scripts/angular.min.js"></script>
+<script src="~/scripts/angular-aria/angular-aria.min.js"></script>
+<script src="~/scripts/angular-animate/angular-animate.js"></script>
+<script src="~/scripts/angular-messages.min.js"></script>
+<script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+<script src="~/scripts/angular-material/angular-material.min.js"></script>
+<script src="~/scripts/controllers/controller.js"></script>
